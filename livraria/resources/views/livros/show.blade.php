@@ -1,0 +1,18 @@
+ID:{{$livro->id_livro}}<br>
+Título:{{$livro->titulo}}<br>
+Idioma:{{$livro->idioma}}
+
+@if(isset($livro->genero->designacao))
+{{$livro->genero->designacao}}
+@endif
+
+@if(count($livro->autores)>0)
+
+
+@foreach($livro->autores as $autor)
+{{$autor->nome}}<br>
+@endforeach
+
+@else
+<div class="alert alert-danger" role="alert">Sem autor definido </div>
+@endif
