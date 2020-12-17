@@ -41,7 +41,7 @@ class LivrosController extends Controller
 
 
       ]);   
-      $livro=Livro::create($novo);
+      $livro=Livro::create($novoLivro);
 
       return redirect()->route('livros.show', ['id'=>$livro->id_livro
    ]);
