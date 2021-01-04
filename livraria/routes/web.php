@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 
@@ -44,3 +43,7 @@ Route::get('/edicoes/{id}/show', 'App\Http\Controllers\EdicoesController@show')-
 Route::get('/livros/create', 'App\Http\Controllers\LivrosController@create')->name('livros.create');
 
 Route::post('/livros', 'App\Http\Controllers\LivrosController@store')->name('livros.store');
+
+Route::get('/livros/{id}/edit', 'App\Http\Controllers\LivrosController@edit')->name('livros.edit');
+
+
