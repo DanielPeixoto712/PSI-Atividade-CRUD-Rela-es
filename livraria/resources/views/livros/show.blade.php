@@ -18,3 +18,5 @@ Idioma:{{$livro->idioma}}
 @endif
 
 <a href="{{route('livros.edit', ['id'=>$livro->id_livro])}}"><h4>Editar</h4></a>
+
+<a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>

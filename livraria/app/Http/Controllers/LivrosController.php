@@ -93,7 +93,16 @@ public function update(Request $request){
   return redirect()->route('livros.show', ['id'=>$livro->id_livro
 ]);
 
- 
+}
 
+public function destroy (Request $request){
+   $idLivro=$request->id;
+
+   $livro=Livro::findOrFail($idLivro);
+
+   $livro->delete();
+   $livro=Livro::where('id_livro', $idLivro)->first;
+   return view('livros.delete',['livro'=>$livro]);
+   return rediret()->route('livros.index')->with('mensagem','Livro eliminado');
 }
 }
