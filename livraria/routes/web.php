@@ -46,4 +46,5 @@ Route::post('/livros', 'App\Http\Controllers\LivrosController@store')->name('liv
 
 Route::get('/livros/{id}/edit', 'App\Http\Controllers\LivrosController@edit')->name('livros.edit');
 
+Route::patch('/livros', 'App\Http\Controllers\LivrosController@update')->name('livros.update');
 

@@ -17,7 +17,7 @@ Total Páginas: <input type="text" name="total_paginas" value=""><br><br>
 
 Data Edição: <input type="date" name="data_edicao" value=""><br><br>
 ISBN: <input type="text" name="isbn" value=""><br><br>
-@if($errors->('isbn'))
+@if($errors->has('isbn'))
 Deverá indicar um ISBN correto (13 caracteres)
 @endif
 
