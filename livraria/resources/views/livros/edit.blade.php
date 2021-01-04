@@ -4,7 +4,7 @@
 	<title>Formulário</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="{{route('livros.update',['id'=>$livro->id_livro])}}" method="post">
 @csrf
 @method('patch')
 Titulo: <input type="text" name="titulo" value=""><br><br>
