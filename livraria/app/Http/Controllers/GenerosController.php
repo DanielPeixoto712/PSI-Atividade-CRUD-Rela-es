@@ -25,4 +25,52 @@ class GenerosController extends Controller
 	return view('generos.show',  ['genero'=>$genero
 ]);
 }
+
+public function create(){
+
+     return view ('generos.create');
+   }
+
+   public function store(Request $request){
+      
+
+      $novoGenero=$request->validate([
+         'designacao'=>['required', 'min:3', 'max:100'],
+         'observacoes'=>['nullable', 'min:3', 'max:120'],
+         
+
+
+      ]);   
+      $genero=Genero::create($novoGenero);
+
+      return redirect()->route('generos.show', ['id'=>$genero->id_genero
+   ]);
+   }
+
+
+public function edit (Request $request){
+   $idGenero=$request->id;
+
+   $genero=Genero::where('id_genero',$idGenero)->first();
+
+   return view('generos.edit',['genero'=>$genero
+]);
+}
+
+
+   public function update(Request $request){
+   $idGenero=$request->id;
+   $genero=Genero::findOrfail($idGenero);
+
+   $atualizarGenero=$request->validate([
+   'designacao'=>['required','min:3','max:100'],
+   'observacoes'=>['nullable','min:3','max:120'],
+   
+]);
+   $genero->update($atualizarGenero);
+
+  return redirect()->route('generos.show', ['id'=>$genero->id_genero
+]);
+
+}
 }

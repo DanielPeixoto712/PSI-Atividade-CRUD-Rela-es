@@ -14,4 +14,11 @@ class Genero extends Model
     public function livros(){
     	return $this->hasMany('App\Models\Livro', 'id_genero');
     }
+
+    protected $fillable=[
+    'designacao',
+    'observacoes'
+   
+
+];
 }

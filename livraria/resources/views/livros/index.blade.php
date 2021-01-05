@@ -10,3 +10,4 @@
 </ul>
 
 
+<a href="{{route('livros.create', ['id'=>$livro->id_livro])}}"><h4>Criar</h4></a>

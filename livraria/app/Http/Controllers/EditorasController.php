@@ -19,11 +19,60 @@ class EditorasController extends Controller
     public function show (Request $request){
 	$idEditora=$request->id;
 
-	$editora=Editora::find($idEditora);
-  $livro=Editora::where('id_editora', $idEditora)->with('autor')->first();
+	//$editora=Editora::find($idEditora);
+  $editora=Editora::where('id_editora', $idEditora)->first();
 
 
 	return view('editoras.show',  ['editora'=>$editora
 ]);
+}
+
+public function create(){
+
+     return view ('editoras.create');
+   }
+
+   public function store(Request $request){
+      
+
+      $novoGenero=$request->validate([
+         'nome'=>['required', 'min:3', 'max:100'],
+         'morada'=>['nullable', 'min:3', 'max:120'],
+         'obseracoes'=>['nullable', 'min:3', 'max:120'],
+
+
+      ]);   
+      $editora=Editora::create($novoEditora);
+
+      return redirect()->route('editoras.show', ['id'=>$editora->id_editora
+   ]);
+   }
+
+
+public function edit (Request $request){
+   $idEditora=$request->id;
+
+   $editora=Editora::where('id_editora',$idEditora)->first();
+
+   return view('editoras.edit',['editora'=>$editora
+]);
+}
+
+
+   public function update(Request $request){
+   $idEditora=$request->id;
+   $editora=Editora::findOrfail($idEditora);
+
+   $atualizarEditora=$request->validate([
+   'nome'=>['required', 'min:3', 'max:100'],
+   'morada'=>['nullable', 'min:3', 'max:120'],
+   'obseracoes'=>['nullable', 'min:3', 'max:120'],
+   
+]);
+   $editora->update($atualizarEditora);
+
+  return redirect()->route('editoras.show', ['id'=>$editora->id_editora
+]);
+
 }
 }

@@ -17,6 +17,7 @@ Idioma:{{$livro->idioma}}
 <div class="alert alert-danger" role="alert">Sem autor definido </div>
 @endif
 
+
 <a href="{{route('livros.edit', ['id'=>$livro->id_livro])}}"><h4>Editar</h4></a>
 
 <a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>

@@ -5,3 +5,5 @@ Observações:{{$genero->observacoes}}<br>
 @foreach($genero->livros as $livro)
 <h3>{{$livro->titulo}}</h3>
 @endforeach
+
+<a href="{{route('generos.edit', ['id'=>$genero->id_genero])}}"><h4>Editar</h4></a>
