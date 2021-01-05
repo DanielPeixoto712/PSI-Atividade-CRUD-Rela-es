@@ -105,4 +105,13 @@ public function destroy (Request $request){
    return view('livros.delete',['livro'=>$livro]);
    return rediret()->route('livros.index')->with('mensagem','Livro eliminado');
 }
+
+public function delete(Request $request){
+   $idLivro=$request->id;
+   $livro=Livro::where('id_livro',$idLivro)->first();
+
+   return view ('livros.delete',['livro'=>$livro]);
+   
+}
+
 }

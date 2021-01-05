@@ -6,3 +6,5 @@
 @endforeach
 </ul>
 {{$autores->render()}}
+
+<a href="{{route('autores.create', ['id'=>$autor->id_autor])}}"><h4>Criar</h4></a>

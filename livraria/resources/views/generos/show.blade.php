@@ -7,3 +7,5 @@ Observações:{{$genero->observacoes}}<br>
 @endforeach
 
 <a href="{{route('generos.edit', ['id'=>$genero->id_genero])}}"><h4>Editar</h4></a>
+
+<a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>

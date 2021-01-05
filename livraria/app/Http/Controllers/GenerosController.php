@@ -73,4 +73,22 @@ public function edit (Request $request){
 ]);
 
 }
+public function destroy (Request $request){
+   $idGenero=$request->id;
+
+   $genero=Genero::findOrFail($idGenero);
+
+   $genero->delete();
+   $genero=Genero::where('id_genero', $idGenero)->first;
+   return view('generos.delete',['genero'=>$genero]);
+   return rediret()->route('generos.index')->with('mensagem','Livro eliminado');
+}
+
+public function delete(Request $request){
+   $idGenero=$request->id;
+   $genero=Genero::where('id_genero',$idGenero)->first();
+
+   return view ('generos.delete',['genero'=>$genero]);
+   
+}
 }

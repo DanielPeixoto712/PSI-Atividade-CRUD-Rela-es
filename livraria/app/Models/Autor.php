@@ -15,5 +15,12 @@ public function livros(){
     	return $this->hasMany('App\Models\Livro', 'id_autor');
     }
 
+protected $fillable=[
+    'nome',
+    'nacionalidade',
+    'observacoes'
+    
 
+];
+   
 }

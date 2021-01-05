@@ -35,7 +35,7 @@ public function create(){
    public function store(Request $request){
       
 
-      $novoGenero=$request->validate([
+      $novoEditora=$request->validate([
          'nome'=>['required', 'min:3', 'max:100'],
          'morada'=>['nullable', 'min:3', 'max:120'],
          'obseracoes'=>['nullable', 'min:3', 'max:120'],

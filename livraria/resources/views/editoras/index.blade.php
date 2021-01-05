@@ -8,6 +8,6 @@
 {{$editoras->render()}}
 
 
-	
+	<a href="{{route('editoras.create', ['id'=>$editora->id_editora])}}"><h4>Criar</h4></a>
 	
 	
