@@ -89,6 +89,9 @@ public function delete(Request $request){
    $genero=Genero::where('id_genero',$idGenero)->first();
 
    return view ('generos.delete',['genero'=>$genero]);
+
+
    
 }
+
 }

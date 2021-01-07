@@ -8,4 +8,4 @@ Observações:{{$genero->observacoes}}<br>
 
 <a href="{{route('generos.edit', ['id'=>$genero->id_genero])}}"><h4>Editar</h4></a>
 
-<a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>
+<a href="{{route('generos.delete', ['id'=>$genero->id_genero])}}"><h4>Eliminar</h4></a>

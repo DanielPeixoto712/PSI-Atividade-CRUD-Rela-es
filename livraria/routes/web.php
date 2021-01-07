@@ -17,23 +17,14 @@ Route::get('/', function () {
 
     
 });
-Route::get('/livros', 'App\Http\Controllers\LivrosController@index')->name('livros.index');
-
-Route::get('/autores', 'App\Http\Controllers\AutoresController@index')->name('autores.index');
-
-Route::get('/editoras', 'App\Http\Controllers\EditorasController@index')->name('editoras.index');
-
-Route::get('/generos', 'App\Http\Controllers\GenerosController@index')->name('generos.index');
-
-Route::get('/livros/{id}/show', 'App\Http\Controllers\LivrosController@show')->name('livros.show');
-
-Route::get('/autores/{id}/show', 'App\Http\Controllers\AutoresController@show')->name('autores.show');
 
 
-Route::get('/editoras/{id}/show', 'App\Http\Controllers\EditorasController@show')->name('editoras.show');
 
 
-Route::get('/generos/{id}/show', 'App\Http\Controllers\GenerosController@show')->name('generos.show');
+
+
+//EDIÇOES
+
 
 Route::get('/edicoes', 'App\Http\Controllers\EdicoesController@index')->name('edicoes.index');
 
@@ -41,6 +32,10 @@ Route::get('/edicoes/{id}/show', 'App\Http\Controllers\EdicoesController@show')-
 
 
 //Livros
+
+Route::get('/livros', 'App\Http\Controllers\LivrosController@index')->name('livros.index');
+
+Route::get('/livros/{id}/show', 'App\Http\Controllers\LivrosController@show')->name('livros.show');
 
 
 Route::get('/livros/create', 'App\Http\Controllers\LivrosController@create')->name('livros.create');
@@ -57,6 +52,10 @@ Route::delete('/livros', 'App\Http\Controllers\LivrosController@destroy')->name(
 
 
 //Generos
+Route::get('/generos', 'App\Http\Controllers\GenerosController@index')->name('generos.index');
+
+Route::get('/generos/{id}/show', 'App\Http\Controllers\GenerosController@show')->name('generos.show');
+
 
 
 Route::get('/generos/create', 'App\Http\Controllers\GenerosController@create')->name('generos.create');
@@ -76,6 +75,10 @@ Route::delete('/generos', 'App\Http\Controllers\GenerosController@destroy')->nam
 
 
 //Editoras
+Route::get('/editoras', 'App\Http\Controllers\EditorasController@index')->name('editoras.index');
+
+Route::get('/editoras/{id}/show', 'App\Http\Controllers\EditorasController@show')->name('editoras.show');
+
 
 
 Route::get('/editoras/create', 'App\Http\Controllers\EditorasController@create')->name('editoras.create');
@@ -85,9 +88,17 @@ Route::post('/editoras', 'App\Http\Controllers\EditorasController@store')->name(
 Route::get('/editoras/{id}/edit', 'App\Http\Controllers\EditorasController@edit')->name('editoras.edit');
 
 Route::patch('/editoras', 'App\Http\Controllers\EditorasController@update')->name('editoras.update');
+
+Route::get('/editoras/{id}/delete', 'App\Http\Controllers\EditorasController@delete')->name('editoras.delete');
+
+Route::delete('/editoras', 'App\Http\Controllers\EditorasController@destroy')->name('editoras.destroy');
  
 
  //Autores
+Route::get('/autores', 'App\Http\Controllers\AutoresController@index')->name('autores.index');
+
+Route::get('/autores/{id}/show', 'App\Http\Controllers\AutoresController@show')->name('autores.show');
+
 
 Route::get('/autores/create', 'App\Http\Controllers\AutoresController@create')->name('autores.create');
 
@@ -96,3 +107,7 @@ Route::post('/autores', 'App\Http\Controllers\AutoresController@store')->name('a
 Route::get('/autores/{id}/edit', 'App\Http\Controllers\AutoresController@edit')->name('autores.edit');
 
 Route::patch('/autores', 'App\Http\Controllers\AutoresController@update')->name('autores.update');
+
+Route::get('/autores/{id}/delete', 'App\Http\Controllers\AutoresController@delete')->name('autores.delete');
+
+Route::delete('/autores', 'App\Http\Controllers\AutoresController@destroy')->name('autores.destroy');
