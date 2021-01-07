@@ -6,8 +6,5 @@
 	<input type="submit" name="enviar">
 </form>
 
-@if(session()->has('mensagem'))
-<div class="alert alert-danger" role="alert">
-	{{session('mensagem')}}
-	@endif
+
 

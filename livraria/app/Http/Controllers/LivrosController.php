@@ -103,7 +103,7 @@ public function destroy (Request $request){
    $livro->delete();
    $livro=Livro::where('id_livro', $idLivro)->first;
    return view('livros.delete',['livro'=>$livro]);
-   return rediret()->route('livros.index')->with('mensagem','Livro eliminado');
+   return redirect()->route('livros.index')->with('mensagem','Livro eliminado');
 }
 
 public function delete(Request $request){

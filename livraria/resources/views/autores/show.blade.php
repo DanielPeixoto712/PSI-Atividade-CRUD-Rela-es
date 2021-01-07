@@ -9,4 +9,5 @@ Data Nascimento:{{$autor->data_nascimento}}
 
 <a href="{{route('autores.edit', ['id'=>$autor->id_autor])}}"><h4>Editar</h4></a>
 
-<a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>
+<a href="{{route('autores.delete', ['id'=>$autores->id_autor])}}"><h4>Eliminar</h4></a>
+

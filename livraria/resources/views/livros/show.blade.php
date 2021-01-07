@@ -21,10 +21,6 @@ Idioma:{{$livro->idioma}}
 <a href="{{route('livros.edit', ['id'=>$livro->id_livro])}}"><h4>Editar</h4></a>
 
 
-@if (session()->has('mensagem')) {
-   {{session('mensagem')}}
-   @endif
-
    
 <a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>
 

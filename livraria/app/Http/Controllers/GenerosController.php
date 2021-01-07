@@ -81,7 +81,8 @@ public function destroy (Request $request){
    $genero->delete();
    $genero=Genero::where('id_genero', $idGenero)->first;
    return view('generos.delete',['genero'=>$genero]);
-   return rediret()->route('generos.index')->with('mensagem','Livro eliminado');
+   return redirect()->route('generos.index')->with('mensagem','Genero eliminado');
+
 }
 
 public function delete(Request $request){
