@@ -11,9 +11,5 @@
 
 <a href="{{route('generos.create', ['id'=>$genero->id_genero])}}"><h4>Criar</h4></a>
 
-@if(session()->has('mensagem'))
-<div class="alert alert-danger" role="alert">
-	{{session('mensagem')}}
-	@endif
 
-	
+

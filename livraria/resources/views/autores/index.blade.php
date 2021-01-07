@@ -9,7 +9,3 @@
 
 <a href="{{route('autores.create', ['id'=>$autor->id_autor])}}"><h4>Criar</h4></a>
 
-@if(session()->has('mensagem'))
-<div class="alert alert-danger" role="alert">
-	{{session('mensagem')}}
-	@endif

@@ -77,25 +77,22 @@ public function edit (Request $request){
 
   return redirect()->route('autores.show', ['id'=>$autor->id_autor
 ]);
-
 }
 public function destroy (Request $request){
    $idAutor=$request->id;
+   $autores=Autor::findOrFail($idAutor);
+   $autores->delete();
 
-   $autor=Autor::findOrFail($idAutor);
 
-   $autor->delete();
-   $autor=Autor::where('id_autor', $idAutor)->first;
-   return view('autores.delete',['autor'=>$autor]);
    return redirect()->route('autores.index')->with('mensagem','Autor eliminado');
 }
 
 public function delete(Request $request){
    $idAutor=$request->id;
    $autor=Autor::where('id_autor',$idAutor)->first();
-
    return view ('autores.delete',['autor'=>$autor]);
    
 }
+
 }
 

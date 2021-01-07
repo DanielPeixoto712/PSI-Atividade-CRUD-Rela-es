@@ -78,20 +78,16 @@ public function edit (Request $request){
 
 public function destroy (Request $request){
    $idEditora=$request->id;
-
    $editora=Editora::findOrFail($idEditora);
-
    $editora->delete();
-   $editora=Editora::where('id_editora', $idEditora)->first;
-   return view('editoras.delete',['editora'=>$editora]);
-   return redirect()->route('editoras.index')->with('mensagem','Editora eliminada');
+
+
+   return redirect()->route('editoras.index')->with('mensagem','Editora eliminado');
 }
 
 public function delete(Request $request){
    $idEditora=$request->id;
    $editora=Editora::where('id_editora',$idEditora)->first();
-
    return view ('editoras.delete',['editora'=>$editora]);
-   
 }
 }

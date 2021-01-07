@@ -97,19 +97,16 @@ public function update(Request $request){
 
 public function destroy (Request $request){
    $idLivro=$request->id;
-
    $livro=Livro::findOrFail($idLivro);
-
    $livro->delete();
-   $livro=Livro::where('id_livro', $idLivro)->first;
-   return view('livros.delete',['livro'=>$livro]);
+
+
    return redirect()->route('livros.index')->with('mensagem','Livro eliminado');
 }
 
 public function delete(Request $request){
    $idLivro=$request->id;
    $livro=Livro::where('id_livro',$idLivro)->first();
-
    return view ('livros.delete',['livro'=>$livro]);
    
 }
