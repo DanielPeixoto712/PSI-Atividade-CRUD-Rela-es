@@ -1,16 +1,16 @@
 ID:{{$livro->id_livro}}<br>
 Título:{{$livro->titulo}}<br>
-Idioma:{{$livro->idioma}}
+Idioma:{{$livro->idioma}}<br>
 
 @if(isset($livro->genero->designacao))
-{{$livro->genero->designacao}}
+Genero:{{$livro->genero->designacao}}<br>
 @endif
 
 @if(count($livro->autores)>0)
 
 
 @foreach($livro->autores as $autor)
-{{$autor->nome}}<br>
+Autor:{{$autor->nome}}<br>
 @endforeach
 
 @else
