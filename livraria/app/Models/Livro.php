@@ -30,7 +30,6 @@ class Livro extends Model
 
 
 
-
 public function autores(){
 	return $this->belongsToMany(
 		'App\Models\Autor',

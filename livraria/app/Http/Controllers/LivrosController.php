@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Livro;
 use App\Models\Genero;
 use App\Models\Autor;
+use App\Models\Editora;
 
 class LivrosController extends Controller
 {
@@ -24,9 +25,12 @@ class LivrosController extends Controller
    public function create(){
       $generos=Genero::all();
       $autores=Autor::all();
+      $editoras=Editora::all();
      return view ('livros.create',[
      'generos'=>$generos,
-     'autores'=>$autores
+     'autores'=>$autores,
+     'editoras'=>$editoras
+   
 
   ]);
    }
@@ -62,10 +66,8 @@ public function show (Request $request){
 
 	// $livro=Livro::find($idLivro);
 
-	$livro=Livro::where('id_livro', $idLivro)->with('genero')->first();
-	$livro=Livro::where('id_livro', $idLivro)->with('autor')->first();
-   $livro=Livro::where('id_livro', $idLivro)->with('editoras')->first();
-   $livro=Livro::where('id_livro', $idLivro)->with(['genero', 'autores'])->first();
+	
+   $livro=Livro::where('id_livro', $idLivro)->with(['genero', 'autores', 'editoras', 'autor'])->first();
 
 
 
@@ -76,6 +78,7 @@ public function edit (Request $request){
 
   $generos=Genero::all();
   $autores=Autor::all();
+  $editoras=Editora::all();
 
    $livro=Livro::where('id_livro',$idLivro)->first();
    $autoresLivro=[];
@@ -83,11 +86,19 @@ public function edit (Request $request){
       $autoresLivro[]=$autor->id_autor;
    }
 
+   $editora=Editora::where('id_editora',$idEditora)->first();
+   $editorasLivro=[];
+   foreach ($livro->editoras as $editora) {
+      $editorasLivro[]=$editora->id_editora;
+   }
+
    return view('livros.edit',[
       'livro'=>$livro,
       'generos'=>$generos,
       'autores'=>$autores,
-      'autoresLivro'=>$autoresLivro
+      'autoresLivro'=>$autoresLivro,
+      'editoras'=>$editoras
+     
 ]);
 }
 

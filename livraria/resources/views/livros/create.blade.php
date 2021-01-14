@@ -13,6 +13,16 @@ Data Edição: <input type="date" name="data_edicao"><br><br>
 ISBN: <input type="text" name="isbn"><br><br>
 Observacoes: <textarea type="text" name="observacoes" ></textarea><br><br>
 Imagem de capa: <input type="text" name="imagem_capa"><br><br>
+
+Editora(s):
+<select name="id_editora">
+	@foreach ($editoras as $editora)
+	<option value="{{$editora->id_editora}}">{{$editora->nome}}</option>
+	@endforeach
+</select>
+<br>
+<br>
+
 Género(s):
 <select name="id_genero">
 	@foreach ($generos as $genero)

@@ -23,6 +23,21 @@ Deverá indicar um ISBN correto (13 caracteres)
 
 Observacoes: <textarea type="text" name="observacoes" ></textarea><br><br>
 Imagem de capa: <input type="text" name="imagem_capa"><br><br>
+
+Editora(s):
+<select name="id_editora[]" multiple="multiple">
+	
+	@foreach($editoras as $editora)
+	<option value="{{$editora->id_editora}}"
+		@if(in_array($editora->id_editora, $editorasLivro))selected 
+		@endif
+		>{{$editora->nome}}
+	</option>
+	@endforeach
+</select>
+<br><br>
+
+
 Género(s):
 <select name="id_genero">
 	@foreach($generos as $genero)
@@ -33,6 +48,8 @@ Género(s):
 		>{{$genero->designacao}}</option>
 	@endforeach
 </select><br><br>
+
+
 Autor(es):
 <select name="id_autor[]" multiple="multiple">
 	
