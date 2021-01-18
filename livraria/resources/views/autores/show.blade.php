@@ -1,11 +1,15 @@
-ID:{{$autor->id_autor}}<br>
-Nome:{{$autor->nome}}<br>
-Nacionalidade:{{$autor->nacionalidade}}<br>
-Data Nascimento:{{$autor->data_nascimento}}
-
+<u>ID:</u>{{$autor->id_autor}}<br>
+<hr>
+<u>Nome:</u>{{$autor->nome}}<br>
+<hr>
+<u>Nacionalidade:</u>{{$autor->nacionalidade}}<br>
+<hr>
+<u>Data Nascimento:</u>{{$autor->data_nascimento}}
+<hr>
 
 @foreach($autor->livros as $livro)
 <h3>{{$livro->titulo}}</h3>
+<hr>
 @endforeach
 
 

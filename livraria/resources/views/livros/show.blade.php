@@ -1,25 +1,31 @@
-ID:{{$livro->id_livro}}<br>
-Título:{{$livro->titulo}}<br>
-Idioma:{{$livro->idioma}}<br>
-
+<u>ID:</u>{{$livro->id_livro}}<br>
+<hr>
+<u>Título:</u>{{$livro->titulo}}<br>
+<hr>
+<u>Idioma:</u>{{$livro->idioma}}<br>
+<hr>
 @if(isset($livro->genero->designacao))
-Genero:{{$livro->genero->designacao}}<br>
+<u>Genero:</u>{{$livro->genero->designacao}}<br>
+<hr>
 @endif
 
 @if(isset($livro->editora->nome))
-Editora:{{$livro->editora->nome}}<br>
+<u>Editora:</u>{{$livro->editora->nome}}<br>
+<hr>
 @endif
 
 @if(count($livro->autores)>0)
 
 
 @foreach($livro->editoras as $editora)
-Autor:{{$editora->nome}}<br>
+<u>Autor:</u>{{$editora->nome}}<br>
+<hr>
 @endforeach
 
 
 @foreach($livro->autores as $autor)
-Autor:{{$autor->nome}}<br>
+<u>Autor:</u>{{$autor->nome}}<br>
+<hr>
 @endforeach
 
 @else

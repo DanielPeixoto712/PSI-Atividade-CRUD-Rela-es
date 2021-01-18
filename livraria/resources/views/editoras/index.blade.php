@@ -7,9 +7,22 @@
 </ul>
 {{$editoras->render()}}
 
+@if(auth()->check())
 
 	<a href="{{route('editoras.create', ['id'=>$editora->id_editora])}}"><h4>Criar</h4></a>
 	
+
+
+ <a class="dropdown-item" href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+        {{ __('Logout') }}
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+	
+@endif
 	
 
-	
