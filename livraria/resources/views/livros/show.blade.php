@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <u>ID:</u>{{$livro->id_livro}}<br>
 <hr>
 <u>Título:</u>{{$livro->titulo}}<br>
@@ -32,12 +35,17 @@
 <div class="alert alert-danger" role="alert">Sem autor definido </div>
 @endif
 
+
+
 @if(auth()->check())
+ID:{{Auth::user()->id}}<br>
+Email:{{Auth::user()->email}}<br>
+Nome:{{Auth::user()->name}}<br>
+
 
 <a href="{{route('livros.edit', ['id'=>$livro->id_livro])}}"><h4>Editar</h4></a>
-
-
    
 <a href="{{route('livros.delete', ['id'=>$livro->id_livro])}}"><h4>Eliminar</h4></a>
 
 @endif
+@endsection

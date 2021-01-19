@@ -17,6 +17,8 @@ class LivrosController extends Controller
    	$livros = Livro::all()->sortbydesc('id_livro');
    	//$livros = Livro::paginate(4);
 
+
+
    	return view('livros.index', ['livros'=>$livros
    ]);
 
@@ -48,12 +50,19 @@ class LivrosController extends Controller
          'imagem_capa'=>['nullable'],
          'id_genero'=>['numeric', 'nullable'],
          'sinopse'=>['nullable','min:3', 'max:255'],
+         'id_user'=>['numeric', 'required'],
 
 
       ]);   
       $autores=$request->id_autor;
       $livro=Livro::create($novoLivro);
       $livro->autores()->attach($autores);
+
+
+    
+
+
+
 
       return redirect()->route('livros.show', ['id'=>$livro->id_livro
    ]);
@@ -66,6 +75,7 @@ public function show (Request $request){
 
 	// $livro=Livro::find($idLivro);
 
+
 	
    $livro=Livro::where('id_livro', $idLivro)->with(['genero', 'autores', 'editoras', 'autor'])->first();
 
@@ -75,6 +85,7 @@ public function show (Request $request){
 }
 public function edit (Request $request){
    $idLivro=$request->id;
+   $idEditora=$request->id;
 
   $generos=Genero::all();
   $autores=Autor::all();
@@ -116,6 +127,7 @@ public function update(Request $request){
    'imagem_capa'=>['nullable'],
    'id_genero'=>['numeric','nullable'],
    'sinopse'=>['nullable','min:3','max:255'],
+    'id_user'=>['numeric', 'required'],
 ]);
    $autores=$request->id_autor;
    $livro->update($atualizarLivro);
@@ -146,5 +158,6 @@ public function delete(Request $request){
    return view ('livros.delete',['livro'=>$livro]);
    
 }
+
 
 }

@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <ul>
 @foreach($editoras as $editora)
 <li>
@@ -26,3 +30,4 @@
 @endif
 	
 
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <ul>
 @foreach($autores as $autor)
 <li>
@@ -23,3 +26,4 @@
     </form>
 
 @endif
+@endsection

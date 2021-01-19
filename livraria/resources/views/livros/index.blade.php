@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <ul>
 @foreach($livros as $livro)
 <li>
@@ -27,3 +30,4 @@
 @endif
 
 
+@endsection

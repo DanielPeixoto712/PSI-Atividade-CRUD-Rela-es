@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <ul>
 @foreach($generos as $genero)
 
@@ -28,3 +31,4 @@
 
 @endif
 
+@endsection

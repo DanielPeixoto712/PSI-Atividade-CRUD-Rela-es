@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <u>ID:</u>{{$autor->id_autor}}<br>
 <hr>
 <u>Nome:</u>{{$autor->nome}}<br>
@@ -9,7 +12,7 @@
 
 @foreach($autor->livros as $livro)
 <h3>{{$livro->titulo}}</h3>
-<hr>
+
 @endforeach
 
 
@@ -19,3 +22,4 @@
 <a href="{{route('autores.delete', ['id'=>$autor->id_autor])}}"><h4>Eliminar</h4></a>
 
 @endif
+@endsection

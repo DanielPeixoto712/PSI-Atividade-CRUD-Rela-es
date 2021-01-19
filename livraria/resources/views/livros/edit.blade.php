@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,18 +25,22 @@ Deverá indicar um ISBN correto (13 caracteres)
 Observacoes: <textarea type="text" name="observacoes" ></textarea><br><br>
 Imagem de capa: <input type="text" name="imagem_capa"><br><br>
 
+
+
+
+
+
+
 Editora(s):
-<select name="id_editora[]" multiple="multiple">
-	
+<select name="id_editora[]" multiple="">
 	@foreach($editoras as $editora)
 	<option value="{{$editora->id_editora}}"
-		@if(in_array($editora->id_editora, $editorasLivro))selected 
+		@if($editora->id_editora==$editora->id_editora)selected 
 		@endif
-		>{{$editora->nome}}
-	</option>
+		>{{$editora->nome}}</option>
 	@endforeach
-</select>
-<br><br>
+</select><br><br>
+
 
 
 Género(s):

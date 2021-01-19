@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@ Data Edição: <input type="date" name="data_edicao"><br><br>
 ISBN: <input type="text" name="isbn"><br><br>
 Observacoes: <textarea type="text" name="observacoes" ></textarea><br><br>
 Imagem de capa: <input type="text" name="imagem_capa"><br><br>
+
 
 Editora(s):
 <select name="id_editora">
@@ -41,7 +43,7 @@ Autor(es):
 <br><br>
 Sinopse: <textarea type="text" name="sinopse"></textarea> <br><br>
 
-
+<h4>Sua id:</h4> <input type="text" name="id_user"><br><br>
 <br>
 
 <br>
@@ -96,6 +98,11 @@ Sinopse: <textarea type="text" name="sinopse"></textarea> <br><br>
 @if($errors->has('sinopse'))
 <i>Deverá indicar uma Sinopse correta </i>
 @endif
+
+@if($errors->has('id_user'))
+<i>Deverá indicar a sua id correta </i>
+@endif
+
 </body>
 </html>
 
